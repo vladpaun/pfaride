@@ -110,45 +110,6 @@
             font-size: 1.2rem;
         }
         
-        .hero {
-            background: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .cta-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info {
-            background: rgba(255,255,255,0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-        
-        .phone {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-        
         .services {
             padding: 4rem 0;
             background: white;
@@ -202,6 +163,49 @@
             color: #27ae60;
             font-weight: bold;
         }
+
+        .service-price {
+            margin-top: auto;
+            background: #2196F3;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tax-section {
+            padding: 3rem 0;
+            background: white;
+        }
+        
+        .tax-info {
+            background: #e3f2fd;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
         
         .pricing {
             background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
@@ -249,21 +253,9 @@
             color: #2c3e50;
             margin-bottom: 2rem;
         }
-        
-        .highlight-box {
-            background: #e3f2fd;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-        
-        .tax-info {
-            background: #e3f2fd;
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+        .why-us .service-card {
+            min-height: 200px;
         }
         
         footer {
@@ -305,20 +297,6 @@
             .container {
                 padding: 0 15px;
             }
-        }
-
-        .service-price {
-            margin-top: auto;
-            background: #2196F3;
-        }
-
-        .why-us .service-card {
-            min-height: 200px;
-        }
-
-        .tax-section {
-            padding: 3rem 0;
-            background: white;
         }
     </style>
 </head>
@@ -380,7 +358,7 @@
                         <li>Asistență pentru deschiderea sau mutarea conturilor Uber/Bolt</li>
                         <li>Identificarea celui mai avantajos regim fiscal</li>
                     </ul>
-                    <div class="service-price" style="color: white; padding: 1rem; border-radius: 10px; margin-top: 1.5rem; text-align: center;">
+                    <div class="service-price">
                         <div style="font-size: 1.8rem; font-weight: bold;">499 lei</div>
                         <div style="font-size: 0.9rem; opacity: 0.9;">Cost total pachet înființare</div>
                     </div>
@@ -396,7 +374,7 @@
                         <li>Trimiterea și validarea e-Factura</li>
                         <li>Estimarea lunară a plăților pentru contribuțiile anuale pentru evitarea blocajelor financiare</li>
                     </ul>
-                    <div class="service-price" style="color: white; padding: 1rem; border-radius: 10px; margin-top: 1.5rem; text-align: center;">
+                    <div class="service-price">
                         <div style="font-size: 1.8rem; font-weight: bold;">299 lei/lună</div>
                         <div style="font-size: 0.9rem; opacity: 0.9;">Serviciu complet de gestiune</div>
                     </div>
@@ -417,52 +395,51 @@
     <section class="hero">
         <div class="container">
             <div class="cta-box">
-    <h3>Calculează-ți taxele personalizate ca PFA</h3>
-    <p>Completează formularul și îți vom face un calcul estimativ personalizat în funcție de situația ta.</p>
-    
-
-    <form class="contact-form" action="mailto:contact@pfaride.ro" method="post" enctype="text/plain" style="max-width: 500px; margin: 2rem auto; text-align: left;">
-        <div style="margin-bottom: 1.5rem;">
-            <label for="income" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Încasări săptămânale:</label>
-            <input type="number" id="income" name="income" placeholder="ex: 1500" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
-            <small style="opacity: 0.8;">Îți luăm în considerare 6 săptămâni de concediu pe an pentru calcul.</small>
-        </div>
-        
-        <div style="margin-bottom: 1.5rem;">
-            <label for="situation" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Regimul tău fiscal:</label>
-            <select id="situation" name="situation" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
-                <option value="">Alege situația în care te afli</option>
-                <option value="student">Student</option>
-                <option value="angajat">Angajat full-time</option>
-                <option value="pensionar">Pensionar</option>
-                <option value="fara-job">Fără loc de muncă</option>
-                <option value="peste-65">Peste 65 de ani</option>
-                <option value="handicap">Handicap grav/accentuat</option>
-            </select>
-            <small style="opacity: 0.8;">Alege situația în care te afli, dacă ai alt loc de muncă, dacă ești pensionar, etc.</small>
-        </div>
-        
-        <div style="margin-bottom: 1.5rem;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Adresa ta de email:</label>
-            <input type="email" id="email" name="email" placeholder="exemplu@email.com" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
-        </div>
-        
-        <div style="margin-bottom: 1.5rem;">
-            <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Numărul tău de telefon:</label>
-            <input type="tel" id="phone" name="phone" placeholder="07xxxxxxxx" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
-        </div>
-        
-        <button type="submit" style="width: 100%; background: white; color: #667eea; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            Trimite cererea
-        </button>
-        
-        <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border: 2px solid #27ae60; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);">
-            <p style="text-align: center; font-size: 1.1rem; font-weight: bold; line-height: 1.4; color: white;">
-                În termen de 24 de ore te vom contacta cu un calcul personalizat al taxelor pe care le vei plăti lucrând pe PFA-ul tău!
-            </p>
-        </div>
-    </form>
-</div>
+                <h3>Calculează-ți taxele personalizate ca PFA</h3>
+                <p>Completează formularul și îți vom face un calcul estimativ personalizat în funcție de situația ta.</p>
+                
+                <form class="contact-form" action="mailto:contact@pfaride.ro" method="post" enctype="text/plain" style="max-width: 500px; margin: 2rem auto; text-align: left;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="income" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Încasări săptămânale:</label>
+                        <input type="number" id="income" name="income" placeholder="ex: 1500" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+                        <small style="opacity: 0.8;">Îți luăm în considerare 6 săptămâni de concediu pe an pentru calcul.</small>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="situation" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Regimul tău fiscal:</label>
+                        <select id="situation" name="situation" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+                            <option value="">Alege situația în care te afli</option>
+                            <option value="student">Student</option>
+                            <option value="angajat">Angajat full-time</option>
+                            <option value="pensionar">Pensionar</option>
+                            <option value="fara-job">Fără loc de muncă</option>
+                            <option value="peste-65">Peste 65 de ani</option>
+                            <option value="handicap">Handicap grav/accentuat</option>
+                        </select>
+                        <small style="opacity: 0.8;">Alege situația în care te afli, dacă ai alt loc de muncă, dacă ești pensionar, etc.</small>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Adresa ta de email:</label>
+                        <input type="email" id="email" name="email" placeholder="exemplu@email.com" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Numărul tău de telefon:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="07xxxxxxxx" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+                    </div>
+                    
+                    <button type="submit" style="width: 100%; background: white; color: #667eea; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                        Trimite cererea
+                    </button>
+                    
+                    <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border: 2px solid #27ae60; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);">
+                        <p style="text-align: center; font-size: 1.1rem; font-weight: bold; line-height: 1.4; color: white;">
+                            În termen de 24 de ore te vom contacta cu un calcul personalizat al taxelor pe care le vei plăti lucrând pe PFA-ul tău!
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
