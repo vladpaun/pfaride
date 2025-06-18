@@ -495,10 +495,10 @@ export default function Home() {
             <h2>Contactează-ne astăzi!</h2>
             <p>Începe să lucrezi legal și eficient cu PFA Ride</p>
             <div className="contact-buttons">
-              <a href="tel:07******32" className="btn">
-                Sună acum: 07******32
+              <a href="tel:0722224832" className="btn">
+                Sună acum: 0722224832
               </a>
-              <a href="https://wa.me/407******32" className="btn btn-secondary">
+              <a href="https://wa.me/40722224832" className="btn btn-secondary">
                 WhatsApp
               </a>
             </div>
@@ -705,10 +705,10 @@ export default function Home() {
         <div className="container">
           <h2>Contactează-ne astăzi!</h2>
           <p>Începe să lucrezi legal și eficient cu PFA Ride</p>
-          <a href="tel:07******32" className="btn">
-            Sună acum: 07******32
+          <a href="tel:0722224832" className="btn">
+            Sună acum: 0722224832
           </a>
-          <a href="https://wa.me/407******32" className="btn btn-secondary">
+          <a href="https://wa.me/40722224832" className="btn btn-secondary">
             WhatsApp
           </a>
           <p style={{ marginTop: "2rem", opacity: 0.8 }}>© 2025 PFA Ride. Toate drepturile rezervate.</p>
@@ -716,7 +716,7 @@ export default function Home() {
       </footer>
 
       {/* WhatsApp Sticky Button - doar pe mobile */}
-      <a href="https://wa.me/407******32" className="whatsapp-sticky">
+      <a href="https://wa.me/40722224832" className="whatsapp-sticky">
         📱 WhatsApp
       </a>
     </>
