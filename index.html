@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFA Ride - Soluție completă pentru șoferii Uber/Bolt</title>
+    <meta name="description" content="PFA Ride oferă servicii complete de înființare și administrare PFA pentru șoferii Uber și Bolt. Lucrezi 100% legal, simplu și eficient!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .intro {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .intro-highlight {
+            background: #e3f2fd;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-highlight p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .intro-highlight .highlight-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2196F3;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .phone {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #2196F3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 500px;
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .pricing {
+            background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .price-card {
+            background: white;
+            color: #333;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2196F3;
+            margin: 1rem 0;
+        }
+        
+        .why-us {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .why-us h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        .highlight-box {
+            background: #e3f2fd;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .tax-info {
+            background: #e3f2fd;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #1976D2 0%, #2196F3 100%);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .intro h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        .service-price {
+            margin-top: auto;
+            background: #2196F3;
+        }
+
+        .why-us .service-card {
+            min-height: 200px;
+        }
+
+        .tax-section {
+            padding: 3rem 0;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/assets/logo.png" alt="PFA Ride Logo" style="width: 120px; height: auto; background: none;">
+            </div>
+            <h1>PFA Ride</h1>
+            <p class="subtitle">Soluție completă pentru șoferii Uber/Bolt<br>
+            Lucrezi 100% legal, simplu și eficient, cu propria ta mașină!</p>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2>Gestiune PFA simplificată pentru activități de ride sharing</h2>
+            
+            <div class="intro-highlight">
+                <p><strong>Ne ocupăm de tot ce ține de înființare, facturare, contabilitate și declarații pentru PFA-uri active în domeniul ride sharing (Bolt, Uber, etc.) și alte activități conexe.</strong></p>
+                
+                <div class="highlight-text">
+                    🚗 Tu conduci, noi ne ocupăm de tot restul!
+                </div>
+                
+                <p><strong>Noi chiar facem TOT pentru tine:</strong></p>
+                
+                <ul class="benefits-list">
+                    <li>Scoatem situațiile direct din platformele Uber/Bolt</li>
+                    <li>Trimitem noi toate documentele în locul tău</li>
+                    <li>Nu trebuie să ne trimiți lunar situațiile din platforme</li>
+                    <li>Nu ai nevoie de cunoștințe tehnice sau contabile</li>
+                    <li>Nu trebuie să faci nimic altceva decât să conduci</li>
+                    <li>Gestionăm complet toate obligațiile fiscale</li>
+                    <li>Îți trimitem doar ordinele de plată gata de semnat</li>
+                </ul>
+                
+                <div class="highlight-text" style="margin-top: 1.5rem;">
+                    Serviciu 100% hands-off - tu te concentrezi pe condus, noi pe birocrație!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Serviciile Noastre</h2>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Pachet Înființare PFA</h3>
+                    <ul class="service-list">
+                        <li>Înființarea rapidă și corectă a PFA-ului</li>
+                        <li>Pregătirea dosarului pentru deschiderea contului bancar</li>
+                        <li>Pregătirea completă a dosarului pentru autorizația ARR</li>
+                        <li>Activarea accesului în SPV</li>
+                        <li>Obținerea certificatului de TVA intracomunitar (obligatoriu pentru Uber, Bolt)</li>
+                        <li>Asistență pentru deschiderea sau mutarea conturilor Uber/Bolt</li>
+                        <li>Identificarea celui mai avantajos regim fiscal</li>
+                    </ul>
+                    <div class="service-price" style="color: white; padding: 1rem; border-radius: 10px; margin-top: 1.5rem; text-align: center;">
+                        <div style="font-size: 1.8rem; font-weight: bold;">499 lei</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Cost total pachet înființare</div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Administrare Lunară Completă</h3>
+                    <ul class="service-list">
+                        <li>Situație lunară a veniturilor și cheltuielilor</li>
+                        <li>Calculul impozitului, CAS, CASS, impozit nerezidenți, TVA intracomunitar</li>
+                        <li>Pregătirea ordinelor de plată (tu doar le semnezi)</li>
+                        <li>Depunerea tuturor declarațiilor fiscale în termen (100, 301, 390 și Declarația unică anuală)</li>
+                        <li>Trimiterea și validarea e-Factura</li>
+                        <li>Estimarea lunară a plăților pentru contribuțiile anuale pentru evitarea blocajelor financiare</li>
+                    </ul>
+                    <div class="service-price" style="color: white; padding: 1rem; border-radius: 10px; margin-top: 1.5rem; text-align: center;">
+                        <div style="font-size: 1.8rem; font-weight: bold;">299 lei/lună</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Serviciu complet de gestiune</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tax-section">
+        <div class="container">
+            <div class="tax-info">
+                <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #2c3e50;">Regim Fiscal Avantajos</h3>
+                <p style="font-size: 1.1rem; font-weight: 600; color: #2c3e50;"><strong>Taxe între 10% și 25% din venitul net</strong> (după comisioanele platformelor), în funcție de situația ta personală.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <div class="cta-box">
+    <h3>Calculează-ți taxele personalizate ca PFA</h3>
+    <p>Completează formularul și îți vom face un calcul estimativ personalizat în funcție de situația ta.</p>
+    
+
+    <form class="contact-form" action="mailto:contact@pfaride.ro" method="post" enctype="text/plain" style="max-width: 500px; margin: 2rem auto; text-align: left;">
+        <div style="margin-bottom: 1.5rem;">
+            <label for="income" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Încasări săptămânale:</label>
+            <input type="number" id="income" name="income" placeholder="ex: 1500" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+            <small style="opacity: 0.8;">Îți luăm în considerare 6 săptămâni de concediu pe an pentru calcul.</small>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="situation" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Regimul tău fiscal:</label>
+            <select id="situation" name="situation" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+                <option value="">Alege situația în care te afli</option>
+                <option value="student">Student</option>
+                <option value="angajat">Angajat full-time</option>
+                <option value="pensionar">Pensionar</option>
+                <option value="fara-job">Fără loc de muncă</option>
+                <option value="peste-65">Peste 65 de ani</option>
+                <option value="handicap">Handicap grav/accentuat</option>
+            </select>
+            <small style="opacity: 0.8;">Alege situația în care te afli, dacă ai alt loc de muncă, dacă ești pensionar, etc.</small>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Adresa ta de email:</label>
+            <input type="email" id="email" name="email" placeholder="exemplu@email.com" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Numărul tău de telefon:</label>
+            <input type="tel" id="phone" name="phone" placeholder="07xxxxxxxx" style="width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem;" required>
+        </div>
+        
+        <button type="submit" style="width: 100%; background: white; color: #667eea; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+            Trimite cererea
+        </button>
+        
+        <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border: 2px solid #27ae60; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);">
+            <p style="text-align: center; font-size: 1.1rem; font-weight: bold; line-height: 1.4; color: white;">
+                În termen de 24 de ore te vom contacta cu un calcul personalizat al taxelor pe care le vei plăti lucrând pe PFA-ul tău!
+            </p>
+        </div>
+    </form>
+</div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Prețuri Transparente</h2>
+            
+            <div class="price-cards">
+                <div class="price-card">
+                    <h3>Pachet Înființare</h3>
+                    <div class="price">499 lei</div>
+                    <p>Cost total pentru tot ce trebuie făcut până începi să lucrezi</p>
+                    <p><em>Practic, totul inclus pentru a deveni operațional!</em></p>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Serviciu Lunar</h3>
+                    <div class="price">299 lei/lună</div>
+                    <p>Serviciu complet de gestiune</p>
+                    <p><strong>Totul inclus</strong> – fiscal, declarativ, suport constant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <h2>De ce să lucrezi cu noi?</h2>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Experiență Specializată</h3>
+                    <p>Suntem o firmă de contabilitate care lucrează cu Uber, Bolt și platforme similare din 2017. Ne concentrăm exclusiv pe domeniul ride sharing și cunoaștem toate specificațiile legale pentru aceste platforme.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Suport Complet</h3>
+                    <p>De la înființare până la administrarea zilnică - ne ocupăm de tot procesul birocratic ca tu să te concentrezi pe condus.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Transparență Totală</h3>
+                    <p>Prețuri fixe, fără costuri ascunse. Știi exact ce plătești și ce primești în schimb.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Contactează-ne astăzi!</h2>
+            <p>Începe să lucrezi legal și eficient cu PFA Ride</p>
+            <a href="tel:07******32" class="btn">Sună acum: 07******32</a>
+            <a href="https://wa.me/407******32" class="btn btn-secondary">WhatsApp</a>
+            <p style="margin-top: 2rem; opacity: 0.8;">© 2024 PFA Ride. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+</body>
+</html>
