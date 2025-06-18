@@ -59,6 +59,43 @@ $headers = [
     'Content-Type: text/plain; charset=UTF-8'
 ];
 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'src/Exception.php';
+require 'src/PHPMailer.php';
+require 'src/SMTP.php';
+$mail = new PHPMailer(true);
+/*
+try {
+// Server settings
+$mail->SMTPDebug = 0; // Set to 2 for verbose debug output
+$mail->isSMTP();
+$mail->Host = 'mail.ssss.ro'; // Your SMTP server
+$mail->SMTPAuth = true;
+$mail->Username = 'no-reply@de.ro'; // SMTP username
+$mail->Password = 'wT z4$['; // SMTP password
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Encryption type
+$mail->Port = 465; // Port for SSL
+
+// Recipients
+$mail->setFrom('no-reply@ss.ro', 'Formular side ss.ro');
+$mail->addAddress('office@s.ro'); // Add recipient
+
+// Content
+$mail->isHTML(true); // Set email format to HTML
+$mail->Subject = $subject;
+$mail->Body = $body_html;
+$mail->AltBody = $body;
+
+$mail->send();
+echo json_encode(['success' => true]);}
+ catch (Exception $e) {
+ http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'Mail failed']);
+
+} */
 $success = mail($to, $subject, $message, implode("\r\n", $headers));
 
 if ($success) {
@@ -67,4 +104,5 @@ if ($success) {
     http_response_code(500);
     echo json_encode(['error' => 'Eroare la trimiterea emailului']);
 }
+
 ?>
