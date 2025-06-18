@@ -1,6 +1,54 @@
 "use client"
 
+import type React from "react"
+
+import { useState } from "react"
+
 export default function Home() {
+  const [formData, setFormData] = useState({
+    income: "",
+    situation: "",
+    email: "",
+    phone: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState("")
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitMessage("")
+
+    try {
+      const response = await fetch("/sendmail.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitMessage("Cererea a fost trimisă cu succes! Te vom contacta în 24 de ore.")
+        setFormData({ income: "", situation: "", email: "", phone: "" })
+      } else {
+        setSubmitMessage("A apărut o eroare. Te rugăm să încerci din nou.")
+      }
+    } catch (error) {
+      setSubmitMessage("A apărut o eroare. Te rugăm să încerci din nou.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <>
       <style jsx global>{`
@@ -204,6 +252,47 @@ export default function Home() {
           font-size: 1.5rem;
           margin-bottom: 1rem;
         }
+
+        .form-input {
+          width: 100%;
+          padding: 0.8rem;
+          border: 2px solid #e0e0e0;
+          border-radius: 8px;
+          font-size: 1rem;
+          background-color: #ffffff;
+          color: #333333;
+          transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+          outline: none;
+          border-color: #2196F3;
+          box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .form-input::placeholder {
+          color: #999999;
+        }
+
+        .submit-message {
+          margin-top: 1rem;
+          padding: 1rem;
+          border-radius: 8px;
+          text-align: center;
+          font-weight: bold;
+        }
+
+        .submit-message.success {
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+        }
+
+        .submit-message.error {
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+        }
         
         .pricing {
           padding: 2rem 0;
@@ -305,6 +394,8 @@ export default function Home() {
           font-weight: bold;
           margin: 1rem;
           transition: transform 0.3s ease;
+          border: none;
+          cursor: pointer;
         }
         
         .btn:hover {
@@ -313,6 +404,12 @@ export default function Home() {
         
         .btn-secondary {
           background: linear-gradient(135deg, #1976D2 0%, #2196F3 100%);
+        }
+
+        .btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
         }
 
         .whatsapp-sticky {
@@ -524,13 +621,7 @@ export default function Home() {
             <h3>Calculează-ți taxele personalizate ca PFA</h3>
             <p>Completează formularul și îți vom face un calcul estimativ personalizat în funcție de situația ta.</p>
 
-            <form
-              className="contact-form"
-              action="mailto:contact@pfaride.ro"
-              method="post"
-              encType="text/plain"
-              style={{ maxWidth: "500px", margin: "2rem auto", textAlign: "left" }}
-            >
+            <form onSubmit={handleSubmit} style={{ maxWidth: "500px", margin: "2rem auto", textAlign: "left" }}>
               <div style={{ marginBottom: "1.5rem" }}>
                 <label htmlFor="income" style={{ display: "block", marginBottom: "0.5rem", fontWeight: "bold" }}>
                   Încasări săptămânale:
@@ -539,8 +630,10 @@ export default function Home() {
                   type="number"
                   id="income"
                   name="income"
+                  value={formData.income}
+                  onChange={handleInputChange}
                   placeholder="ex: 1500"
-                  style={{ width: "100%", padding: "0.8rem", border: "none", borderRadius: "8px", fontSize: "1rem" }}
+                  className="form-input"
                   required
                 />
                 <small style={{ opacity: 0.8 }}>
@@ -555,7 +648,9 @@ export default function Home() {
                 <select
                   id="situation"
                   name="situation"
-                  style={{ width: "100%", padding: "0.8rem", border: "none", borderRadius: "8px", fontSize: "1rem" }}
+                  value={formData.situation}
+                  onChange={handleInputChange}
+                  className="form-input"
                   required
                 >
                   <option value="">Alege situația în care te afli</option>
@@ -579,8 +674,10 @@ export default function Home() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="exemplu@email.com"
-                  style={{ width: "100%", padding: "0.8rem", border: "none", borderRadius: "8px", fontSize: "1rem" }}
+                  className="form-input"
                   required
                 />
               </div>
@@ -593,54 +690,58 @@ export default function Home() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   placeholder="07xxxxxxxx"
-                  style={{ width: "100%", padding: "0.8rem", border: "none", borderRadius: "8px", fontSize: "1rem" }}
+                  className="form-input"
                   required
                 />
               </div>
 
               <button
                 type="submit"
+                disabled={isSubmitting}
+                className="btn"
                 style={{
                   width: "100%",
                   background: "white",
-                  color: "#667eea",
-                  padding: "1rem",
-                  border: "none",
-                  borderRadius: "8px",
-                  fontSize: "1.1rem",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
+                  color: "#2196F3",
+                  margin: 0,
                 }}
               >
-                Trimite cererea
+                {isSubmitting ? "Se trimite..." : "Trimite cererea"}
               </button>
 
-              <div
+              {submitMessage && (
+                <div className={`submit-message ${submitMessage.includes("succes") ? "success" : "error"}`}>
+                  {submitMessage}
+                </div>
+              )}
+            </form>
+
+            <div
+              style={{
+                background: "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)",
+                padding: "1.5rem",
+                borderRadius: "10px",
+                marginTop: "1rem",
+                border: "2px solid #27ae60",
+                boxShadow: "0 4px 15px rgba(39, 174, 96, 0.3)",
+              }}
+            >
+              <p
                 style={{
-                  background: "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)",
-                  padding: "1.5rem",
-                  borderRadius: "10px",
-                  marginTop: "1rem",
-                  border: "2px solid #27ae60",
-                  boxShadow: "0 4px 15px rgba(39, 174, 96, 0.3)",
+                  textAlign: "center",
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  lineHeight: 1.4,
+                  color: "white",
                 }}
               >
-                <p
-                  style={{
-                    textAlign: "center",
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
-                    lineHeight: 1.4,
-                    color: "white",
-                  }}
-                >
-                  În termen de 24 de ore te vom contacta cu un calcul personalizat al taxelor pe care le vei plăti
-                  lucrând pe PFA-ul tău!
-                </p>
-              </div>
-            </form>
+                În termen de 24 de ore te vom contacta cu un calcul personalizat al taxelor pe care le vei plăti lucrând
+                pe PFA-ul tău!
+              </p>
+            </div>
           </div>
         </div>
       </section>
