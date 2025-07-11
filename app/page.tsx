@@ -52,461 +52,512 @@ export default function Home() {
   return (
     <>
       <style jsx global>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      header {
+        color: white;
+        padding: 0;
+        text-align: center;
+      }
+
+      .logo-section {
+        background: white;
+        padding: 0; /* Reduced padding */
+      }
+
+      .title-section {
+        background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+        padding: 0 0 2rem 0;
+      }
+      
+      .logo {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo img {
+        width: 480px; /* Increased by 20% from 400px */
+        height: auto; /* Maintain aspect ratio */
+        background: white !important;
+        /* Removed clip-path, object-position, padding, border-radius, box-shadow */
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .intro {
+        padding: 2rem 0;
+        background: white;
+        text-align: center;
+      }
+
+      .intro h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+      }
+
+      .intro-highlight {
+        background: #e3f2fd;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem auto;
+        max-width: 900px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      .intro-highlight p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+      }
+
+      .intro-highlight .highlight-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2196F3;
+        margin-bottom: 1.5rem;
+      }
+
+      .benefits-list {
+        list-style: none;
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .benefits-list li {
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1rem;
+        color: #2c3e50;
+      }
+
+      .benefits-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      
+      .services {
+        padding: 2rem 0;
+        background: white;
+      }
+      
+      .services h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 2rem;
+      }
+      
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .service-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 5px solid #2196F3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 500px;
+      }
+      
+      .service-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      
+      .service-list {
+        list-style: none;
+      }
+      
+      .service-list li {
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      
+      .service-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+        font-weight: bold;
+      }
+
+      .service-price {
+        margin-top: auto;
+        background: #2196F3;
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .tax-section {
+        padding: 1.5rem 0;
+        background: white;
+      }
+      
+      .tax-info {
+        background: #e3f2fd;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      
+      .hero {
+        padding: 2rem 0;
+        background: white;
+        text-align: center;
+      }
+      
+      .cta-box {
+        background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        text-align: center;
+      }
+      
+      .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #333333;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #2196F3;
+        box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+      }
+
+      .form-input::placeholder {
+        color: #999999;
+      }
+
+      .submit-message {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .submit-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .submit-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      
+      .pricing {
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+        color: white;
+        text-align: center;
+      }
+      
+      .pricing h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .price-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .price-card {
+        background: white;
+        color: #333;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2196F3;
+        margin: 1rem 0;
+      }
+      
+      .why-us {
+        padding: 2rem 0;
+        background: white;
+      }
+      
+      .why-us h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+      }
+
+      .why-us .service-card {
+        min-height: 200px;
+      }
+
+      .contact-section {
+        padding: 2rem 0;
+        background: #f8f9fa;
+      }
+
+      .contact-box {
+        background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+        color: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      .contact-box h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-box p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      .contact-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .bottom-logo-section {
+        padding: 2rem 0;
+        background: white;
+        text-align: center; /* Ensure text-align is set for parent */
+      }
+
+      .bottom-logo-section img {
+        width: 480px; /* Increased by 20% from 400px */
+        height: auto;
+        display: block; /* Make it a block element */
+        margin: 0 auto; /* Center it using auto margins */
+      }
+      
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+      
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        margin: 1rem;
+        transition: transform 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      
+      .btn-secondary {
+        background: linear-gradient(135deg, #1976D2 0%, #2196F3 100%);
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .whatsapp-sticky {
+        display: none;
+      }
+      
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
         }
         
-        body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          background-color: #f8f9fa;
+        .intro h2 {
+          font-size: 1.5rem;
         }
         
         .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 15px;
         }
-        
-        header {
-          background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
-          color: white;
-          padding: 2rem 0;
-          text-align: center;
+
+        .logo img {
+          width: 360px; /* Increased by 20% from 300px for mobile */
+          height: auto; /* Maintain aspect ratio */
         }
-        
-        .logo {
-          margin: 0 auto 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+
+        .bottom-logo-section img {
+          width: 360px; /* Increased by 20% from 300px for mobile */
+          height: auto;
+          display: block; /* Make it a block element */
+          margin: 0 auto; /* Center it using auto margins */
         }
-        
-        h1 {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-          font-weight: 700;
-        }
-        
-        .subtitle {
-          font-size: 1.2rem;
-          opacity: 0.9;
-          max-width: 600px;
-          margin: 0 auto;
+
+        .logo-section {
+          padding: 0; /* Reduced padding for mobile */
         }
 
         .intro {
-          padding: 2rem 0;
-          background: white;
-          text-align: center;
+          padding: 1.5rem 0;
         }
 
-        .intro h2 {
-          font-size: 2rem;
-          color: #2c3e50;
-          margin-bottom: 1.5rem;
-        }
-
-        .intro-highlight {
-          background: #e3f2fd;
-          padding: 2rem;
-          border-radius: 15px;
-          margin: 1.5rem auto;
-          max-width: 900px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .intro-highlight p {
-          font-size: 1.1rem;
-          margin-bottom: 1.5rem;
-          color: #2c3e50;
-        }
-
-        .intro-highlight .highlight-text {
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: #2196F3;
-          margin-bottom: 1.5rem;
-        }
-
-        .benefits-list {
-          list-style: none;
-          text-align: left;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        .benefits-list li {
-          padding: 0.5rem 0;
-          position: relative;
-          padding-left: 2rem;
-          font-size: 1rem;
-          color: #2c3e50;
-        }
-
-        .benefits-list li:before {
-          content: "✓";
-          position: absolute;
-          left: 0;
-          color: #27ae60;
-          font-weight: bold;
-          font-size: 1.2rem;
-        }
-        
         .services {
-          padding: 2rem 0;
-          background: white;
-        }
-        
-        .services h2 {
-          text-align: center;
-          font-size: 2.2rem;
-          color: #2c3e50;
-          margin-bottom: 2rem;
-        }
-        
-        .service-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          margin-bottom: 2rem;
-        }
-        
-        .service-card {
-          background: #f8f9fa;
-          padding: 2rem;
-          border-radius: 15px;
-          border-left: 5px solid #2196F3;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          min-height: 500px;
-        }
-        
-        .service-card h3 {
-          color: #2c3e50;
-          margin-bottom: 1rem;
-          font-size: 1.3rem;
-        }
-        
-        .service-list {
-          list-style: none;
-        }
-        
-        .service-list li {
-          padding: 0.5rem 0;
-          position: relative;
-          padding-left: 1.5rem;
-        }
-        
-        .service-list li:before {
-          content: "✓";
-          position: absolute;
-          left: 0;
-          color: #27ae60;
-          font-weight: bold;
-        }
-
-        .service-price {
-          margin-top: auto;
-          background: #2196F3;
-          color: white;
-          padding: 1rem;
-          border-radius: 10px;
-          text-align: center;
+          padding: 1.5rem 0;
         }
 
         .tax-section {
-          padding: 1.5rem 0;
-          background: white;
+          padding: 1rem 0;
         }
-        
-        .tax-info {
-          background: #e3f2fd;
-          padding: 2rem;
-          border-radius: 15px;
-          margin: 1rem 0;
-          text-align: center;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
+
         .hero {
-          padding: 2rem 0;
-          background: white;
-          text-align: center;
-        }
-        
-        .cta-box {
-          background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-          color: white;
-          padding: 2rem;
-          border-radius: 15px;
-          margin: 1.5rem 0;
-          text-align: center;
-        }
-        
-        .cta-box h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+          padding: 1.5rem 0;
         }
 
-        .form-input {
-          width: 100%;
-          padding: 0.8rem;
-          border: 2px solid #e0e0e0;
-          border-radius: 8px;
-          font-size: 1rem;
-          background-color: #ffffff;
-          color: #333333;
-          transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus {
-          outline: none;
-          border-color: #2196F3;
-          box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
-        }
-
-        .form-input::placeholder {
-          color: #999999;
-        }
-
-        .submit-message {
-          margin-top: 1rem;
-          padding: 1rem;
-          border-radius: 8px;
-          text-align: center;
-          font-weight: bold;
-        }
-
-        .submit-message.success {
-          background-color: #d4edda;
-          color: #155724;
-          border: 1px solid #c3e6cb;
-        }
-
-        .submit-message.error {
-          background-color: #f8d7da;
-          color: #721c24;
-          border: 1px solid #f5c6cb;
-        }
-        
         .pricing {
-          padding: 2rem 0;
-          background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
-          color: white;
-          text-align: center;
-        }
-        
-        .pricing h2 {
-          font-size: 2.2rem;
-          margin-bottom: 2rem;
-        }
-        
-        .price-cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        
-        .price-card {
-          background: white;
-          color: #333;
-          padding: 2rem;
-          border-radius: 15px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .price {
-          font-size: 2.5rem;
-          font-weight: bold;
-          color: #2196F3;
-          margin: 1rem 0;
-        }
-        
-        .why-us {
-          padding: 2rem 0;
-          background: white;
-        }
-        
-        .why-us h2 {
-          text-align: center;
-          font-size: 2.2rem;
-          color: #2c3e50;
-          margin-bottom: 1.5rem;
+          padding: 1.5rem 0;
         }
 
-        .why-us .service-card {
-          min-height: 200px;
+        .why-us {
+          padding: 1.5rem 0;
         }
 
         .contact-section {
-          padding: 2rem 0;
-          background: #f8f9fa;
+          padding: 1.5rem 0;
         }
 
-        .contact-box {
-          background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
-          color: white;
-          padding: 2.5rem;
-          border-radius: 15px;
-          text-align: center;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .contact-box h2 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .contact-box p {
-          font-size: 1.2rem;
-          margin-bottom: 1.5rem;
-          opacity: 0.9;
-        }
-
-        .contact-buttons {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-        
-        footer {
-          background: #2c3e50;
-          color: white;
-          padding: 2rem 0;
-          text-align: center;
-        }
-        
-        .btn {
-          display: inline-block;
-          background: linear-gradient(135deg, #2196F3 0%, #2c3e50 100%);
-          color: white;
-          padding: 1rem 2rem;
-          text-decoration: none;
-          border-radius: 50px;
-          font-weight: bold;
-          margin: 1rem;
-          transition: transform 0.3s ease;
-          border: none;
-          cursor: pointer;
-        }
-        
-        .btn:hover {
-          transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-          background: linear-gradient(135deg, #1976D2 0%, #2196F3 100%);
-        }
-
-        .btn:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-          transform: none;
+        .bottom-logo-section {
+          padding: 1.5rem 0;
         }
 
         .whatsapp-sticky {
-          display: none;
+          display: block;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1000;
+          background: #25D366;
+          color: white;
+          padding: 15px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: bold;
+          box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+          animation: pulse 2s infinite;
         }
-        
-        @media (max-width: 768px) {
-          h1 {
-            font-size: 2rem;
-          }
-          
-          .intro h2 {
-            font-size: 1.5rem;
-          }
-          
-          .container {
-            padding: 0 15px;
-          }
 
-          .intro {
-            padding: 1.5rem 0;
-          }
+        .whatsapp-sticky:hover {
+          background: #128C7E;
+          transform: scale(1.05);
+        }
 
-          .services {
-            padding: 1.5rem 0;
-          }
-
-          .tax-section {
-            padding: 1rem 0;
-          }
-
-          .hero {
-            padding: 1.5rem 0;
-          }
-
-          .pricing {
-            padding: 1.5rem 0;
-          }
-
-          .why-us {
-            padding: 1.5rem 0;
-          }
-
-          .contact-section {
-            padding: 1.5rem 0;
-          }
-
-          .whatsapp-sticky {
-            display: block;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
+        @keyframes pulse {
+          0% {
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            animation: pulse 2s infinite;
           }
-
-          .whatsapp-sticky:hover {
-            background: #128C7E;
-            transform: scale(1.05);
+          50% {
+            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
           }
-
-          @keyframes pulse {
-            0% {
-              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            }
-            50% {
-              box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
-            }
-            100% {
-              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            }
+          100% {
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
           }
         }
-      `}</style>
+      }
+    `}</style>
 
       <header>
-        <div className="container">
-          <div className="logo">
-            <img
-              src="/assets/logo.png"
-              alt="PFA Ride Logo"
-              style={{ width: "120px", height: "auto", background: "none" }}
-            />
+        <div className="logo-section">
+          <div className="container">
+            <div className="logo">
+              <img src="/assets/logo.png" alt="PFA Ride Logo" />
+            </div>
           </div>
-          <h1>PFA Ride</h1>
-          <p className="subtitle">
-            Contabilitate PFA Uber & Bolt - Soluție completă pentru șoferii ride sharing
-            <br />
-            Lucrezi 100% legal, simplu și eficient, cu propria ta mașină!
-          </p>
+        </div>
+        <div className="title-section">
+          <div className="container">
+            <h1>PFA Ride</h1>
+            <p className="subtitle">
+              Contabilitate PFA Uber & Bolt - Soluție completă pentru șoferii ride sharing
+              <br />
+              Lucrezi 100% legal, simplu și eficient, cu propria ta mașină!
+            </p>
+          </div>
         </div>
       </header>
 
@@ -801,6 +852,12 @@ export default function Home() {
               <p>Prețuri fixe, fără costuri ascunse. Știi exact ce plătești și ce primești în schimb.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bottom-logo-section">
+        <div className="container">
+          <img src="/assets/logo.png" alt="PFA Ride Logo" />
         </div>
       </section>
 
