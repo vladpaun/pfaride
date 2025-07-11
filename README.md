@@ -20,6 +20,7 @@ in next.config.mjs:
   "preview": "npx serve out -l 3000",%  
 
 
+## npm run build este pt a face fisierul out pentru ca in text.config.mjs este output" export;
 
   LA UPDATE: 
 
