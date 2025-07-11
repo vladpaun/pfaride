@@ -503,7 +503,7 @@ export default function Home() {
           </div>
           <h1>PFA Ride</h1>
           <p className="subtitle">
-            Soluție completă pentru șoferii Uber/Bolt
+            Contabilitate PFA Uber & Bolt - Soluție completă pentru șoferii ride sharing
             <br />
             Lucrezi 100% legal, simplu și eficient, cu propria ta mașină!
           </p>
@@ -517,8 +517,9 @@ export default function Home() {
           <div className="intro-highlight">
             <p>
               <strong>
-                Ne ocupăm de tot ce ține de înființare, facturare, contabilitate și declarații pentru PFA-uri active în
-                domeniul ride sharing (Bolt, Uber, etc.) și alte activități conexe.
+                Oferim servicii complete de contabilitate PFA Uber și contabilitate PFA Bolt pentru șoferii activi în
+                domeniul ride sharing. Ne ocupăm de tot ce ține de înființare, facturare, contabilitate și declarații
+                fiscale.
               </strong>
             </p>
 
@@ -570,6 +571,7 @@ export default function Home() {
             <div className="service-card">
               <h3>Administrare Lunară Completă</h3>
               <ul className="service-list">
+                <li>Contabilitate PFA Uber și Bolt completă</li>
                 <li>Situație lunară a veniturilor și cheltuielilor</li>
                 <li>Calculul impozitului, CAS, CASS, impozit nerezidenți, TVA intracomunitar</li>
                 <li>Pregătirea ordinelor de plată (tu doar le semnezi)</li>
@@ -778,11 +780,11 @@ export default function Home() {
 
           <div className="service-grid">
             <div className="service-card">
-              <h3>Experiență Specializată</h3>
+              <h3>Contabilitate PFA Uber & Bolt Specializată</h3>
               <p>
-                Suntem o firmă de contabilitate care lucrează cu Uber, Bolt și platforme similare din 2017. Ne
-                concentrăm exclusiv pe domeniul ride sharing și cunoaștem toate specificațiile legale pentru aceste
-                platforme.
+                Suntem o firmă de contabilitate specializată în servicii de contabilitate PFA Uber și contabilitate PFA
+                Bolt din 2017. Ne concentrăm exclusiv pe domeniul ride sharing și cunoaștem toate specificațiile legale
+                pentru aceste platforme.
               </p>
             </div>
 
